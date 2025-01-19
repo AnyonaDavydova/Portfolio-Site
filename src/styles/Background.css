@@ -1,0 +1,23 @@
+body {
+    background-color: #a16629;
+    color: #d0cab7;
+    --c: #ededf3;
+    --d: 2em;
+    --l: 2px;
+    --o: calc(0.5 * var(--l));
+
+    background:
+            conic-gradient(from 90deg at var(--l) var(--l),
+            transparent 25%, var(--c) 0%)
+            calc(-1 * var(--o)) calc(-1 * var(--o)) / var(--d) var(--d),
+
+            linear-gradient(45deg,
+            transparent calc(50% + calc(-1 * var(--o))),
+            var(--c) 0 calc(50% + var(--o)), transparent 0)
+            0 0 / calc(2 * var(--d)) calc(2 * var(--d)),
+
+            linear-gradient(-45deg,
+            transparent calc(50% + calc(-1 * var(--o))),
+            var(--c) 0 calc(50% + var(--o)), transparent 0)
+            0 0 / calc(2 * var(--d)) calc(2 * var(--d));
+}
