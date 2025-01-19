@@ -26,6 +26,7 @@
 }
 
 .project-card {
+  position: relative;
   padding: 15px;
   border-radius: 10px;
   background-color: #fff;
@@ -35,6 +36,15 @@
 }
 
 .project-card a {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   text-decoration: none;
   color: #a16629;
   font-size: 1.2em;
