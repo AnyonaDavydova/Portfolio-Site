@@ -7,22 +7,22 @@ const Projects: React.FC = () => {
             <h2>Мои проекты</h2>
             <div className="projects-grid">
                 <div className="project-card">
-                    <a href="https://github.com/AnyonaDavydova/PersonalSite" target="_blank" rel="noopener noreferrer">
+                    <a href="https://github.com/AnyonaDavydova/PersonalSite">
                         Персональный сайт (новый)
                     </a>
                 </div>
                 <div className="project-card">
-                    <a href="https://github.com/AnyonaDavydova/DAVYDOVA-ANYONA---site" target="_blank" rel="noopener noreferrer">
+                    <a href="https://github.com/AnyonaDavydova/DAVYDOVA-ANYONA---site">
                         Персональный сайт (старый)
                     </a>
                 </div>
                 <div className="project-card">
-                    <a href="https://github.com/AnyonaDavydova/WoodLand" target="_blank" rel="noopener noreferrer">
+                    <a href="https://github.com/AnyonaDavydova/WoodLand">
                         Браузерная игра
                     </a>
                 </div>
                 <div className="project-card">
-                    <a href="https://yandex.ru/images/search?from=tabbar&img_url=https%3A%2F%2Fpbs.twimg.com%2Fmedia%2FFLUTzJkXsAYexBo.jpg&lr=75&pos=7&rpt=simage&text=котенок%20мем" target="_blank" rel="noopener noreferrer">
+                    <a href="https://vk.com/kittyjpeg?z=photo-210589082_457253315%2Fwall-210589082_63972">
                         Продолжение следует...
                     </a>
                 </div>
