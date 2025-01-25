@@ -1,25 +1,23 @@
-.home {
-    padding: 5%;
-    text-align: center;
-}
-
 .profile-photo{
     height: 200px;
     border-radius: 50%;
 }
+
 .home h1 {
-    font-size: 3rem;
+    font-size: 2rem;
     font-family: monospace;
     margin-bottom: 20px;
     color: #a16629;
+    word-wrap: break-word;
 }
 
 .home p {
-    font-size: 1.0rem;
+    font-size: 1rem;
     color: #a16629;
     font-family: monospace;
     position: fixed;
     bottom: 10%;
     left: 0;
     right: 0;
+    text-align: center;
 }

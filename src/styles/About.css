@@ -1,21 +1,11 @@
-.about {
-    margin: 5%;
-    padding: 10px 20px;
-    font-family: monospace;
-    background-color: rgba(204, 201, 182, 0.53);
-    color: #d0cab7;
-    border-radius: 10px;
-    text-align: center;
-}
-
 .about h2 {
     color: #a06629;
-    font-size: 4em;
-    font-weight: bold;
+    font-size: 3em;
+    margin-bottom: 20px;
 }
 
 .about p {
     color: #a06629;
-    font-size: 2em;
-    font-weight: normal;
+    font-size: 1.2em;
+    text-align: center;
 }
