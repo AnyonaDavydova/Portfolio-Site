@@ -1,14 +1,29 @@
-import React from 'react';
-import '../styles/Footer.css';
+import "../styles/Footer.css"
+import { ISocialLink } from "../types/SocialLink"
+
+export interface FooterProps{
+    socialLinks: ISocialLink[];
+    email: string;
+}
 
 
-const Footer: React.FC = () => {
+export const Footer = ({ socialLinks, email }: FooterProps) =>{
     return (
         <footer className="footer">
-            <p>© 2025 Anona.</p>
-            <p>Все права защищены)</p>
+            <div className="social-links">
+                {socialLinks.map((link) => (
+                    <a
+                        key={link.url}
+                        href={link.url}
+                        aria-label={link.label}
+                        className="social-link"
+                    >
+                        <img src={link.iconSrc} alt={link.label} className="social-icon"></img>
+                    </a>
+                ))}
+            </div>
+            <p>© 2025 Anona. Все права защищены)</p>
+            <p className="footer-email">Email: {email}</p>
         </footer>
     );
 };
-
-export default Footer;

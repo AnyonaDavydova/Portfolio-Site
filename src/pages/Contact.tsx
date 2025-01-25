@@ -1,33 +1,76 @@
-import React from 'react';
-import '../styles/Contact.css';
+import { useState } from "react";
+import { Layout } from "../components/Layout";
+import { IValidationError } from "../types/ValidationError";
+import { ThankYouMessage } from "../components/Message";
+import { validateForm } from "../validation";
+import "../styles/Contact.css"
 
-const Contact: React.FC = () => {
+export const Contact = () =>{
+    const [name, setName] = useState<string>("");
+    const [email, setEmail] = useState<string>("");
+    const [message, setMessage] = useState<string>("");
+    const [errors, setErrors] = useState<IValidationError>({});
+    const [isSubmitted, setIsSubmitted] = useState<boolean>(false);
+
+    const handleSubmit = (e: React.FormEvent) => {
+        e.preventDefault();
+
+        const validError = { name, email, message };
+
+        const newErrors = validateForm({ validError });
+
+        if (Object.keys(newErrors).length === 0) {
+            setIsSubmitted(true);
+            setName("");
+            setEmail("");
+            setMessage("");
+            setErrors({});
+        } else {
+            setErrors(newErrors);
+        }
+    };
+
     return (
-        <div className="contact">
-            <div className="grid-container">
-                <div className="contact-item github">
-                    <a href="https://github.com/AnyonaDavydova">
-                        GitHub
-                    </a>
-                </div>
-                <div className="contact-item telegram">
-                    <a href="https://t.me/aaaanyonaaaa">
-                        Telegram
-                    </a>
-                </div>
-                <div className="contact-item email">
-                    <a href="mailto:echpochmak78@gmail.com">
-                        Email
-                    </a>
-                </div>
-                <div className="contact-item vk">
-                    <a href="https://vk.com/lifeisnotsoyahoooo">
-                        ВКонтакте
-                    </a>
-                </div>
+        <Layout>
+            <div className="contacts-container">
+                <h2>Есть что сказать?</h2>
+                {isSubmitted ? (
+                    <ThankYouMessage onReset={() => setIsSubmitted(false)} />
+                ) : (
+                    <form className="contact-form" onSubmit={handleSubmit}>
+                        <div className="form-group">
+                            <label htmlFor="name">Имя:</label>
+                            <input
+                                type="text"
+                                id="name"
+                                value={name}
+                                onChange={(e) => setName(e.target.value)}
+                            />
+                            {errors.name && <p className="error-text">{errors.name}</p>}
+                        </div>
+                        <div className="form-group">
+                            <label htmlFor="email">Email:</label>
+                            <input
+                                type="text"
+                                id="email"
+                                value={email}
+                                onChange={(e) => setEmail(e.target.value)}
+                            />
+                            {errors.email && <p className="error-text">{errors.email}</p>}
+                        </div>
+                        <div className="form-group">
+                            <label htmlFor="message">Сообщение:</label>
+                            <textarea className="message"
+                                      id="message"
+                                      value={message}
+                                      onChange={(e) => setMessage(e.target.value)}
+                            />
+                            {errors.message && <p className="error-text">{errors.message}</p>}
+                        </div>
+                        <button className="sendButton" type="submit">Отправить</button>
+                    </form>
+                )}
             </div>
-        </div>
+        </Layout>
     );
 };
-
-export default Contact;
