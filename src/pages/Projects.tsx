@@ -1,35 +1,25 @@
 import React from 'react';
 import '../styles/Projects.css';
 
-const Projects: React.FC = () => {
+export const Projects: React.FC = () => {
+    const projects = [
+        { href: "https://github.com/AnyonaDavydova/PersonalSite", label: "Персональный сайт (новый)" },
+        { href: "https://github.com/AnyonaDavydova/DAVYDOVA-ANYONA---site", label: "Персональный сайт (старый)" },
+        { href: "https://github.com/AnyonaDavydova/WoodLand", label: "Браузерная игра" },
+        { href: "https://vk.com/kittyjpeg?z=photo-210589082_457253315%2Fwall-210589082_63972", label: "Продолжение следует..." },
+    ];
+
     return (
         <div className="projects">
             <h2>Мои проекты</h2>
             <div className="projects-grid">
-                <div className="project-card">
-                    <a href="https://github.com/AnyonaDavydova/PersonalSite">
-                        Персональный сайт (новый)
-                    </a>
-                </div>
-                <div className="project-card">
-                    <a href="https://github.com/AnyonaDavydova/DAVYDOVA-ANYONA---site">
-                        Персональный сайт (старый)
-                    </a>
-                </div>
-                <div className="project-card">
-                    <a href="https://github.com/AnyonaDavydova/WoodLand">
-                        Браузерная игра
-                    </a>
-                </div>
-                <div className="project-card">
-                    <a href="https://vk.com/kittyjpeg?z=photo-210589082_457253315%2Fwall-210589082_63972">
-                        Продолжение следует...
-                    </a>
-                </div>
+                {projects.map(({ href, label }) => (
+                    <div className="project-card" key={href}>
+                        <a href={href}>{label}</a>
+                    </div>
+                ))}
             </div>
             <p>Тыкните для перехода на проект)</p>
         </div>
     );
 };
-
-export default Projects;

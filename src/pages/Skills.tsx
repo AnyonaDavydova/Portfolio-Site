@@ -1,8 +1,7 @@
 import React from 'react';
 import '../styles/Skills.css';
 
-
-const Skills: React.FC = () => {
+export const Skills: React.FC = () => {
     return (
         <div className="skills">
             <h2>Мои навыки</h2>
@@ -29,6 +28,3 @@ const Skills: React.FC = () => {
         </div>
     );
 };
-
-
-export default Skills;

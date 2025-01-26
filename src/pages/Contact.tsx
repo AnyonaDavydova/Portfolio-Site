@@ -1,33 +1,23 @@
 import React from 'react';
 import '../styles/Contact.css';
 
-const Contact: React.FC = () => {
+export const Contact: React.FC = () => {
+    const contactLinks = [
+        { href: "https://github.com/AnyonaDavydova", label: "GitHub", className: "github" },
+        { href: "https://t.me/aaaanyonaaaa", label: "Telegram", className: "telegram" },
+        { href: "mailto:echpochmak78@gmail.com", label: "Email", className: "email" },
+        { href: "https://vk.com/lifeisnotsoyahoooo", label: "ВКонтакте", className: "vk" },
+    ];
+
     return (
         <div className="contact">
             <div className="grid-container">
-                <div className="contact-item github">
-                    <a href="https://github.com/AnyonaDavydova">
-                        GitHub
-                    </a>
-                </div>
-                <div className="contact-item telegram">
-                    <a href="https://t.me/aaaanyonaaaa">
-                        Telegram
-                    </a>
-                </div>
-                <div className="contact-item email">
-                    <a href="mailto:echpochmak78@gmail.com">
-                        Email
-                    </a>
-                </div>
-                <div className="contact-item vk">
-                    <a href="https://vk.com/lifeisnotsoyahoooo">
-                        ВКонтакте
-                    </a>
-                </div>
+                {contactLinks.map(({ href, label, className }) => (
+                    <div className={`contact-item ${className}`} key={href}>
+                        <a href={href}>{label}</a>
+                    </div>
+                ))}
             </div>
         </div>
     );
 };
-
-export default Contact;

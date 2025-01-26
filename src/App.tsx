@@ -1,15 +1,14 @@
 import React from 'react';
 import { Routes, Route } from 'react-router-dom';
-import Home from './pages/Home';
-import About from './pages/About';
-import Skills from './pages/Skills';
-import Projects from './pages/Projects';
-import Contact from './pages/Contact';
-import Header from './components/Header';
-import Footer from './components/Footer';
+import { Home } from './pages/Home';
+import { About } from './pages/About';
+import { Skills } from './pages/Skills';
+import { Projects } from './pages/Projects';
+import { Contact } from './pages/Contact';
+import { Header } from './components/Header';
+import { Footer } from './components/Footer';
 
-
-const App: React.FC = () => {
+export const App: React.FC = () => {
     return (
         <>
             <Header />
@@ -24,5 +23,3 @@ const App: React.FC = () => {
         </>
     );
 };
-
-export default App;
