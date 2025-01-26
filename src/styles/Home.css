@@ -1,0 +1,25 @@
+.home {
+    padding: 5%;
+    text-align: center;
+}
+
+.profile-photo{
+    height: 200px;
+    border-radius: 50%;
+}
+.home h1 {
+    font-size: 3rem;
+    font-family: monospace;
+    margin-bottom: 20px;
+    color: #a16629;
+}
+
+.home p {
+    font-size: 1.0rem;
+    color: #a16629;
+    font-family: monospace;
+    position: fixed;
+    bottom: 10%;
+    left: 0;
+    right: 0;
+}
