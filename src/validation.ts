@@ -1,19 +1,16 @@
-import { IValidationError } from "./types/ValidationError.ts";
+import { IValidationError } from "./types/ValidationError";
+import { IFormData } from "./types/FormData";
 
-export interface ValidationErrorProps{
-    validError: IValidationError
-}
-
-export const validateForm = ({validError} :  ValidationErrorProps) =>{
+export const validateForm = (formData: IFormData): IValidationError => {
     const errors: IValidationError = {};
 
-    if (!validError.name?.trim()) errors.name = "Имя обязательно";
-    if (!validError.email?.trim()) {
+    if (!formData.name?.trim()) errors.name = "Имя обязательно";
+    if (!formData.email?.trim()) {
         errors.email = "Email обязателен";
-    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(validError.email)) {
+    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
         errors.email = "Неверный формат email";
     }
-    if (!validError.message?.trim()) errors.message = "Сообщение обязательно";
+    if (!formData.message?.trim()) errors.message = "Сообщение обязательно";
 
     return errors;
-}
+};
