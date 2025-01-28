@@ -1,11 +1,10 @@
-import "../styles/Footer.css"
-import { ISocialLink } from "../types/SocialLink"
+import "../styles/Footer.css";
+import { ISocialLink } from "../types/SocialLink";
 
-export interface FooterProps{
-    socialLinks: ISocialLink[];
-    email: string;
+export interface FooterProps {
+    readonly socialLinks: readonly ISocialLink[];
+    readonly email: string;
 }
-
 
 export const Footer = ({ socialLinks, email }: FooterProps) =>{
     return (
@@ -18,7 +17,7 @@ export const Footer = ({ socialLinks, email }: FooterProps) =>{
                         aria-label={link.label}
                         className="social-link"
                     >
-                        <img src={link.iconSrc} alt={link.label} className="social-icon"></img>
+                        <img src={link.iconSrc} alt={link.label} className="social-icon"/>
                     </a>
                 ))}
             </div>
