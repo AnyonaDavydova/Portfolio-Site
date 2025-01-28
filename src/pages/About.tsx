@@ -1,13 +1,12 @@
-import React from 'react';
-import '../styles/About.css';
+import { Layout } from "../components/Layout";
 
-export const About: React.FC = () => {
+export const About = () =>{
     return (
-        <div className="about">
+        <Layout>
             <h2>Что обо мне рассказать?</h2>
             <p>Я - Давыдова Алена, студентка Дальневосточного Федерального университета! Обучаюсь на направлении
-                системное программирование. Люблю мемы с животными.</p>
+                системное программирование. Люблю меми с животными.</p>
             <p>На этом пока все)</p>
-        </div>
+        </Layout>
     );
 };

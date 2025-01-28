@@ -1,0 +1,29 @@
+body {
+    background-color: #ffffff;
+}
+
+.layout {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    overflow: hidden;
+    padding-top: 20px;
+}
+
+.content {
+    background-color: rgba(161, 102, 41, 0.45);
+    color: #a16629;
+    border-radius: 10px;
+    padding: 20px;
+    max-width: 800px;
+    width: 80%;
+    text-align: center;
+    line-height: 1.8;
+    margin: 5px auto;
+    font-family: monospace;
+}

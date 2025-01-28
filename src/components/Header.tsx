@@ -1,16 +1,19 @@
-import React from 'react';
+import "../styles/Header.css"
 import { Link } from 'react-router-dom';
-import '../styles/Header.css';
 
-export const Header: React.FC = () => {
+
+export const Header = () => {
+    const handleDragStart = (event: React.DragEvent<HTMLAnchorElement>) => {
+        event.preventDefault();
+    };
     return (
         <header className="header">
-            <nav>
-                <Link to="/">HOME</Link>
-                <Link to="/about">ABOUT ANONA</Link>
-                <Link to="/skills">ANONAS SKILLS</Link>
-                <Link to="/projects">ANONAS PROJECTS</Link>
-                <Link to="/contact">CONTACT ANONA</Link>
+            <nav className="navigation">
+                <Link to="/" className="nav-link" onDragStart={handleDragStart}>HOME</Link>
+                <Link to="/about" className="nav-link" onDragStart={handleDragStart}>ABOUT ANONA</Link>
+                <Link to="/skills" className="nav-link" onDragStart={handleDragStart}>ANONAS SKILLS</Link>
+                <Link to="/projects" className="nav-link" onDragStart={handleDragStart}>ANONAS PROJECTS</Link>
+                <Link to="/contact" className="nav-link" onDragStart={handleDragStart}>CONTACT ANONA</Link>
             </nav>
         </header>
     );

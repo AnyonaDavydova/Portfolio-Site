@@ -1,94 +1,73 @@
-.contact {
-  margin-top: 5%;
+.contacts-container {
+  font-family: monospace;
+  padding: 15px;
+  max-width: 450px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+h2 {
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.contact-form {
   display: flex;
   flex-direction: column;
   align-items: center;
-  font-family: monospace;
+  gap: 8px;
 }
 
-.grid-container {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  grid-template-rows: repeat(2, 1fr);
-  gap: 20px;
-  width: 70%;
-}
-
-.contact-item {
+.form-group {
+  width: 100%;
   display: flex;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-  text-align: center;
-  font-size: 1.5rem;
-  font-weight: bold;
-  color: #a06629;
-  border-radius: 10px;
-  aspect-ratio: 1 / 1;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+input,
+textarea {
+  width: 100%;
+  padding: 8px;
+  border: 2px solid #ddd;
+  border-radius: 6px;
+  font-size: 14px;
   background-color: #f4f4f4;
-  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  font-family: "Courier New", monospace;
+  transition: border-color 0.3s ease;
 }
 
-.contact-item:hover {
-  background-color: rgba(0, 0, 0, 0.05);
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+textarea {
+  height: 120px;
+  resize: none;
+  background-color: #ffffff;
 }
 
-.contact-item a {
-  color: inherit;
-  text-decoration: none;
-  z-index: 2;
+.error-text {
+  color: red;
+  font-size: 12px;
+  margin-top: 3px;
 }
 
-.contact-item::before {
-  content: "";
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 0;
-  height: 0;
-  background-size: cover;
-  background-position: center;
-  border-radius: 50%;
-  transition: all 0.5s ease;
-  transform: translate(-50%, -50%) scale(0);
-  z-index: 1;
+.sendButton {
+  padding: 8px 18px;
+  background-color: #d0cab7;
+  border: none;
+  border-radius: 6px;
+  color: #a16629;
+  font-size: 14px;
+  cursor: pointer;
+  font-family: monospace;
+  transition: background-color 0.3s ease;
 }
 
-.contact-item:hover::before {
-  width: 150%;
-  height: 150%;
-  transform: translate(-50%, -50%) scale(1);
-  opacity: 0.5;
+.sendButton:hover {
+  background-color: #b57723;
+  color: white;
 }
 
-.contact-item:hover a {
-  color: #000;
+.thank-you-message {
+  font-size: 16px;
+  color: green;
+  margin-top: 15px;
 }
-
-.github::before {
-  background-image: url("../assets/Icons/Cgit.png");
-}
-
-.telegram::before {
-  background-image: url("../assets/Icons/Ctg.png");
-}
-
-.email::before {
-  background-image: url("../assets/Icons/Cemail.png");
-}
-
-.vk::before {
-  background-image: url("../assets/Icons/Cvk.png");
-}
-
-@media (min-width: 768px) {
-  .contact {
-    margin-top: 10%;
-  }
-  .grid-container {
-    grid-template-columns: repeat(4, 1fr);
-    grid-template-rows: 1fr;
-  }
-}
-
