@@ -1,27 +1,8 @@
-.projects {
-  margin: 5%;
-  padding: 20px;
-  background-color: rgba(204, 201, 182, 0.53);
-  border-radius: 10px;
-  text-align: center;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
-
-.projects h2 {
-  color: #a06629;
-  font-size: 2.5em;
-  margin-bottom: 20px;
-}
-
-.projects p {
-  font-size: 1.1em;
-  color: #a06629;
-}
-
 .projects-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   gap: 30px;
+  margin-top: 20px;
 }
 
 .project-card {
@@ -67,4 +48,19 @@
 
 .filter select:hover {
   background-color: #f0d9b5;
+}
+
+.form-button {
+  padding: 10px 20px;
+  font-size: 1em;
+  border: none;
+  border-radius: 5px;
+  background-color: #a06629;
+  color: white;
+  cursor: pointer;
+  margin-bottom: 15px;
+}
+
+.form-button:hover {
+  background-color: #6b4423;
 }
