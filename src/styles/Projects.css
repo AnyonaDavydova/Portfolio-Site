@@ -25,6 +25,7 @@
   color: #a16629;
   font-size: 1.1em;
   font-weight: bold;
+  transition: color 0.3s ease;
 }
 
 .project-card a:hover {
@@ -44,6 +45,7 @@
   background-color: #fff;
   color: #a06629;
   cursor: pointer;
+  transition: background-color 0.3s ease;
 }
 
 .filter select:hover {
@@ -59,6 +61,7 @@
   color: white;
   cursor: pointer;
   margin-bottom: 15px;
+  transition: background-color 0.3s ease;
 }
 
 .form-button:hover {
