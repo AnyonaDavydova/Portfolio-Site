@@ -1,55 +1,68 @@
-import { useState } from "react";
+import { useEffect, useState, useMemo } from "react";
+import { useAppSelector, useAppDispatch } from "../store/hooks.ts";
 import { Layout } from "../components/Layout";
-import { projects } from "../data/Projects";
-import { IProject } from "../types/Project";
+import { setProjects } from "../store/projectsSlice";
+import { projects as dataProjects } from "../data/Projects";
+import { ProjectFilter } from "../components/PrjFilter";
+import { ProjectList } from "../components/PrjList";
+import { AddProjectForm } from "../components/AddPrj";
+import { TECHNOLOGIES, ALL_TECHNOLOGIES } from "../constants/technologies";
 import "../styles/Projects.css";
 
-const TECHNOLOGIES = ["All", "React", "TypeScript", "JavaScript", "Unity", "Vue", "Electron"];
-
 export const Projects = () => {
-    const [selectedTech, setSelectedTech] = useState<string>("All");
+    const projects = useAppSelector((state) => state.projects.items);
+    const dispatch = useAppDispatch();
 
-    const filteredProjects =
-        selectedTech === "All"
-            ? projects
-            : projects.filter((project) => project.technologies.includes(selectedTech));
+    const [selectedTech, setSelectedTech] = useState<string>(ALL_TECHNOLOGIES);
+    const [isAddFormVisible, setIsAddFormVisible] = useState<boolean>(false);
+
+    useEffect(() => {
+        const savedProjects = localStorage.getItem("projects");
+        if (savedProjects) {
+            try {
+                const parsedProjects = JSON.parse(savedProjects);
+                if (Array.isArray(parsedProjects)) {
+                    dispatch(setProjects(parsedProjects));
+                }
+            } catch (error) {
+                console.error("Ошибка при парсинге данных из localStorage:", error);
+            }
+        } else if (!projects.length) {
+            dispatch(setProjects(dataProjects));
+        }
+    }, [dispatch, projects.length]);
+
+    const filteredProjects = useMemo(
+        () =>
+            selectedTech === ALL_TECHNOLOGIES
+                ? projects
+                : projects.filter((project) =>
+                    project.technologies.includes(selectedTech)
+                ),
+        [projects, selectedTech]
+    );
 
     return (
         <Layout>
-            <h2>Мои проекты</h2>
-            <div className="filter">
-                <label htmlFor="technology-filter">Выберите технологию: </label>
-                <select
-                    id="technology-filter"
-                    value={selectedTech}
-                    onChange={(e) => setSelectedTech(e.target.value)}
-                >
-                    {TECHNOLOGIES.map((tech) => (
-                        <option key={tech} value={tech}>
-                            {tech}
-                        </option>
-                    ))}
-                </select>
-            </div>
-
-            <div className="projects-list">
-                {filteredProjects.length > 0 ? (
-                    filteredProjects.map((project: IProject) => (
-                        <div key={project.id} className="project-card">
-                            <h3>{project.title}</h3>
-                            <p>{project.description}</p>
-                            <p className="tech">
-                                Технологии: {project.technologies.join(", ")}
-                            </p>
-                            <a href={project.link} target="_blank" rel="noopener noreferrer">
-                                Перейти на GitHub
-                            </a>
-                        </div>
-                    ))
-                ) : (
-                    <p>Проекты не найдены</p>
-                )}
-            </div>
+            {isAddFormVisible ? (
+                <AddProjectForm onClose={() => setIsAddFormVisible(false)} />
+            ) : (
+                <>
+                    <h2>Мои проекты</h2>
+                    <button
+                        onClick={() => setIsAddFormVisible(true)}
+                        className="form-button"
+                    >
+                        Добавить проект
+                    </button>
+                    <ProjectFilter
+                        selectedTech={selectedTech}
+                        onFilterChange={setSelectedTech}
+                        technologies ={TECHNOLOGIES}
+                    />
+                    <ProjectList projects={filteredProjects} />
+                </>
+            )}
         </Layout>
     );
 };
