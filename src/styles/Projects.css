@@ -32,12 +32,12 @@
   color: #6b4423;
 }
 
-.filter {
+.project-tech-filter {
   margin-bottom: 10px;
   text-align: center;
 }
 
-.filter select {
+.project-tech-filter select {
   padding: 5px;
   font-size: 1.1em;
   border-radius: 25px;
@@ -48,7 +48,7 @@
   transition: background-color 0.3s ease;
 }
 
-.filter select:hover {
+.project-tech-filter select:hover {
   background-color: #f0d9b5;
 }
 

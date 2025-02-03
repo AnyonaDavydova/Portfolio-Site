@@ -9,15 +9,25 @@ const initialState: ProjectsState = {
     items: [],
 };
 
+const isDuplicate = (state: ProjectsState, project: Project): boolean => {
+    return state.items.some((existingProject) => existingProject.id === project.id);
+};
+
 const projectsSlice = createSlice({
     name: 'projects',
     initialState,
     reducers: {
         setProjects(state, action: PayloadAction<Project[]>) {
-            state.items = action.payload;
+            state.items = action.payload.filter(
+                (project, index, self) => self.findIndex(p => p.id === project.id) === index
+            );
         },
         addProject(state, action: PayloadAction<Project>) {
-            state.items.push(action.payload);
+            if (!isDuplicate(state, action.payload)) {
+                state.items.push(action.payload);
+            } else {
+                console.warn(`Проект с ID ${action.payload.id} уже существует и не был добавлен.`);
+            }
         },
     },
 });
