@@ -1,4 +1,4 @@
-export interface ISocialLink{
+export interface SocialLink{
     iconSrc: string;
     url: string;
     label: string;   

@@ -1,5 +1,4 @@
-import { ITechnology } from "../types/Technology";
-
+import { Technology } from "../types/Technology";
 import APIcon from "../assets/Icons/TAP.svg"
 import AsepiteIcon from "../assets/Icons/TAsep.svg"
 import BlenderIcon from "../assets/Icons/TAP.svg"
@@ -7,7 +6,7 @@ import UnityIcon from "../assets/Icons/TAP.svg"
 import ReactIcon from "../assets/Icons/TAP.svg"
 import VueIcon from "../assets/Icons/TAP.svg"
 
-export const Technologies: ITechnology[] = [
+export const Technologies: Technology[] = [
     {
         logo: APIcon,
         name: 'Adobe Photoshop',

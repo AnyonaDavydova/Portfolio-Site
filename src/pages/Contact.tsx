@@ -1,14 +1,14 @@
 import { useState } from "react";
 import { Layout } from "../components/Layout";
-import { IValidationError } from "../types/ValidationError";
+import { ValidationError } from "../types/ValidationError";
 import { ThankYouMessage } from "../components/Message";
 import { validateForm } from "../validation";
-import { IFormData } from "../types/FormData";
+import { FormData } from "../types/FormData";
 import "../styles/Contact.css";
 
 export const Contact = () => {
-    const [formData, setFormData] = useState<IFormData>({ name: "", email: "", message: "" });
-    const [errors, setErrors] = useState<IValidationError>({});
+    const [formData, setFormData] = useState<FormData>({ name: "", email: "", message: "" });
+    const [errors, setErrors] = useState<ValidationError>({});
     const [isSubmitted, setIsSubmitted] = useState<boolean>(false);
 
     const resetForm = () => {

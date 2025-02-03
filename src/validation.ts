@@ -1,8 +1,8 @@
-import { IValidationError } from "./types/ValidationError";
-import { IFormData } from "./types/FormData";
+import { ValidationError } from "./types/ValidationError";
+import { FormData } from "./types/FormData";
 
-export const validateForm = (formData: IFormData): IValidationError => {
-    const errors: IValidationError = {};
+export const validateForm = (formData: FormData): ValidationError => {
+    const errors: ValidationError = {};
 
     if (!formData.name?.trim()) errors.name = "Имя обязательно";
     if (!formData.email?.trim()) {

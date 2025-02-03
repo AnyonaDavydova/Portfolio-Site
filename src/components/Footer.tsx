@@ -1,8 +1,8 @@
 import "../styles/Footer.css";
-import { ISocialLink } from "../types/SocialLink";
+import { SocialLink } from "../types/SocialLink";
 
 export interface FooterProps {
-    readonly socialLinks: readonly ISocialLink[];
+    readonly socialLinks: readonly SocialLink[];
     readonly email: string;
 }
 

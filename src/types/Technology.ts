@@ -1,4 +1,4 @@
-export interface ITechnology {
+export interface Technology {
     logo: string;       
     name: string;       
     experience: string; 
