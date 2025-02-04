@@ -1,4 +1,4 @@
-export interface IValidationError {
+export interface ValidationError {
     name?: string;
     email?: string;
     message?: string;
