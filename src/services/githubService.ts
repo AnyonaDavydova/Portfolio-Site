@@ -1,4 +1,4 @@
-import axios from 'axios';
+import axios from "axios";
 import { Project } from '../types/Project';
 
 const GITHUB_API_URL = 'https://api.github.com';

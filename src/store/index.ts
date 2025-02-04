@@ -5,11 +5,8 @@ import { Project } from '../types/Project';
 type PreloadedState = {
     projects: {
         items: Project[];
-        status: 'idle' | 'loading' | 'succeeded' | 'failed';
-        error: string | null;
     };
 };
-
 
 const isValidProject = (project: Project): boolean => {
     return (
@@ -35,11 +32,8 @@ const loadProjectsFromLocalStorage = (): PreloadedState['projects']['items'] => 
 const preloadedState: PreloadedState = {
     projects: {
         items: loadProjectsFromLocalStorage(),
-        status: 'idle',
-        error: null,
     },
 };
-
 
 export const store = configureStore({
     reducer: {
