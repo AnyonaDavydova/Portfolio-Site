@@ -12,8 +12,8 @@ interface AddProjectFormProps {
 }
 
 export const AddProjectForm = ({ onClose }: AddProjectFormProps) => {
-    const dispatch = useDispatch<AppDispatch>();
-    const projects = useSelector((state: RootState) => state.projects.items);
+    const dispatch: AppDispatch = useDispatch();
+    const projects = useSelector<RootState, Project[]>((state) => state.projects.items);
 
     const {
         register,
@@ -23,12 +23,14 @@ export const AddProjectForm = ({ onClose }: AddProjectFormProps) => {
         formState: { errors },
     } = useForm<PrjFormInputs>();
 
-    const generateNumericId = (): number => {
-        const uuid = uuidv4();
-        return parseInt(uuid.replace(/-/g, '').slice(0, 15), 16);
-    };
+// ну ладно, пусть будет строка((((
 
     const Technologies = ['React', 'TypeScript', 'JavaScript', 'Unity', 'Vue', 'Electron'];
+
+    const saveProject = (project: Project) => {
+        dispatch(addProject(project));
+        localStorage.setItem('projects', JSON.stringify([...projects, project]));
+    };
 
     const handleAddProject: SubmitHandler<PrjFormInputs> = (data) =>{
         const techArray = data.technologies.split(',').map((tech) => tech.trim());
@@ -43,15 +45,14 @@ export const AddProjectForm = ({ onClose }: AddProjectFormProps) => {
         }
 
         const newProject: Project = {
-            id: generateNumericId(),
+            id: uuidv4(),
             title: data.title,
             description: data.description,
             technologies: techArray,
             link: data.link,
         };
 
-        dispatch(addProject(newProject));
-        localStorage.setItem('projects', JSON.stringify([...projects, newProject]));
+        saveProject(newProject);
         reset();
         onClose();
     };
