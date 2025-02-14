@@ -1,0 +1,66 @@
+.add-project {
+    width: 90%;
+    max-width: 500px;
+    background-color: #f5f5f5;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    font-family: monospace;
+    margin: 0 auto;
+}
+
+.add-project h2 {
+    font-size: 1.8em;
+    color: #333;
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+.add-project form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.form-input,
+.form-textarea {
+    width: 100%;
+    padding: 10px;
+    font-size: 1em;
+    font-family: monospace;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    margin-bottom: 12px;
+    background-color: #fff;
+}
+
+.error-message {
+    color: #d9534f;
+    font-size: 0.9em;
+    margin-bottom: 10px;
+}
+
+.form-buttons-container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.form-button,
+.back-button {
+    width: 48%;
+    padding: 10px;
+    font-size: 1em;
+    font-family: monospace;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.back-button {
+    background-color: #6c757d;
+    color: white;
+}
+
+.back-button:hover {
+    background-color: #5a6268;
+}

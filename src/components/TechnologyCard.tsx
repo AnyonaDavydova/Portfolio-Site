@@ -1,9 +1,9 @@
-import { ITechnology } from "../types/Technology";
+import { Technology } from "../types/Technology";
 import "../styles/TechnologyCard.css"
 
 
 export interface TechnologyCardProps{
-    technology: ITechnology;
+    technology: Technology;
 }
 
 export const TechnologyCard = ({technology}: TechnologyCardProps) =>{
